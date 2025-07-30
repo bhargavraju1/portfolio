@@ -1,8 +1,10 @@
 const ContactMessage = require('../models/contactMessage');
 
 const submitContactForm = async (req, res) => {
+  console.log(req.body)
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, subject, message } = req.body.formData;
+
 
     const newMessage = new ContactMessage({ name, email, subject, message });
     await newMessage.save();

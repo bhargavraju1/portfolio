@@ -10,6 +10,7 @@ connectDB(); // Connect to MongoDB
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -61,10 +62,11 @@ const Contact = () => {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // In a real app, you would use:
-      // const response = await fetch('/api/contact', {...});
+       
+  
+       const response = await axios.post('http://localhost:5000/api/contact', {formData});
       
-      // Simulate successful submission
+       
       setSubmitStatus({ 
         success: true, 
         message: 'Your message has been sent successfully! I\'ll get back to you soon.' 
