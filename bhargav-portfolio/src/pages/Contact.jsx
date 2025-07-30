@@ -64,7 +64,7 @@ const Contact = () => {
       
        
   
-       const response = await axios.post('http://localhost:5000/api/contact', {formData});
+       const response = await axios.post('https://bhargav-portfolio-xxs8.onrender.com/api/contact', {formData});
       
        
       setSubmitStatus({ 
