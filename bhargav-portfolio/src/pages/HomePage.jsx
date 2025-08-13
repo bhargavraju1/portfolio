@@ -65,13 +65,13 @@ const HomePage = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 pt-24 px-6 pb-12">
-      <div className="max-w-7xl mx-auto flex flex-col items-center">
+    <div className="min-h-screen px-6 pt-24 pb-12 text-gray-800 bg-white">
+      <div className="flex flex-col items-center mx-auto max-w-7xl">
         {/* Hero Section */}
-        <section className="w-full flex flex-col lg:flex-row items-center justify-center gap-16 mb-24">
-          {/* Interactive Image */}
+        <section className="flex flex-col items-center justify-center w-full gap-16 mb-24 lg:flex-row">
+          {/* Interactive Image - UPDATED SIZE HERE */}
           <motion.div 
-            className="relative"
+            className="relative flex justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, type: 'spring' }}
@@ -79,8 +79,9 @@ const HomePage = () => {
             <motion.img
               src={profileImage}
               alt="Profile"
-              className={`rounded-full w-70 h-95 object-cover border-[6px] border-blue-900 transition-all duration-300 ${
-                imageLoaded ? 'shadow-2xl' : 'shadow-none'
+              // Reduced size from w-70 h-95 to w-56 h-56
+              className={`rounded-full w-80 h-83 object-cover border-[4px] border-blue-900 transition-all duration-300 ${
+                imageLoaded ? 'shadow-xl' : 'shadow-none'
               }`}
               whileHover={{ scale: 1.05 }}
               onLoad={() => setImageLoaded(true)}
@@ -90,9 +91,9 @@ const HomePage = () => {
               style={{ cursor: 'default', userSelect: 'none' }}
             />
 
-            {/* Floating Tech Badges */}
+            {/* Floating Tech Badges - ADJUSTED POSITION */}
             <motion.div 
-              className="absolute -bottom-6 -right-6 flex gap-2"
+              className="absolute flex gap-1 -bottom-4 -right-4"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -100,7 +101,7 @@ const HomePage = () => {
               {['HTML', 'CSS', 'JS'].map((tech, i) => (
                 <motion.div
                   key={i}
-                  className="bg-blue-900 text-white px-3 py-1 rounded-full font-bold text-sm shadow-lg"
+                  className="px-2 py-1 text-xs font-bold text-white bg-blue-900 rounded-full shadow-md"
                   whileHover={{ y: -5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -112,14 +113,14 @@ const HomePage = () => {
 
           {/* Bio with Interactive Elements */}
           <motion.div 
-            className="w-full lg:w-1/2 space-y-6 text-center lg:text-left"
+            className="w-full space-y-6 text-center lg:w-1/2 lg:text-left"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-5xl font-bold leading-tight lg:text-6xl">
               Hi, I'm <motion.span 
-                className="text-blue-900 inline-block"
+                className="inline-block text-blue-900"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
@@ -128,7 +129,7 @@ const HomePage = () => {
             </h1>
 
             <motion.p 
-              className="text-xl text-gray-600 mt-4"
+              className="mt-4 text-xl text-gray-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -139,7 +140,7 @@ const HomePage = () => {
 
             {/* Animated Skills Cloud */}
             <motion.div 
-              className="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start"
+              className="flex flex-wrap justify-center gap-3 mt-6 lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -164,7 +165,7 @@ const HomePage = () => {
 
             {/* Interactive Buttons */}
             <motion.div 
-              className="flex gap-6 mt-8 justify-center lg:justify-start"
+              className="flex justify-center gap-6 mt-8 lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
@@ -172,7 +173,7 @@ const HomePage = () => {
               {/* View Projects Button */}
               <Link to="/projects">
                 <motion.button 
-                  className="px-5 py-3 border-2 border-blue-900 bg-blue-900 text-white font-semibold rounded-lg flex items-center gap-2 hover:bg-blue-800 transition duration-200 text-sm md:text-base"
+                  className="flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white transition duration-200 bg-blue-900 border-2 border-blue-900 rounded-lg hover:bg-blue-800 md:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -184,7 +185,7 @@ const HomePage = () => {
               {/* Contact Me Button */}
               <Link to="/contact">
                 <motion.button 
-                  className="px-5 py-3 border-2 border-blue-900 bg-blue-900 text-white font-semibold rounded-lg flex items-center gap-2 hover:bg-blue-800 transition duration-200 text-sm md:text-base"
+                  className="flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white transition duration-200 bg-blue-900 border-2 border-blue-900 rounded-lg hover:bg-blue-800 md:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -196,7 +197,7 @@ const HomePage = () => {
 
             {/* Social Links with Animation */}
             <motion.div 
-              className="flex gap-4 mt-6 justify-center lg:justify-start"
+              className="flex justify-center gap-4 mt-6 lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
@@ -205,7 +206,7 @@ const HomePage = () => {
                 <motion.a
                   key={i}
                   href={social.url}
-                  className="text-2xl p-2 rounded-full bg-gray-200 hover:bg-blue-900 hover:text-white"
+                  className="p-2 text-2xl bg-gray-200 rounded-full hover:bg-blue-900 hover:text-white"
                   whileHover={{ 
                     scale: 1.2,
                     rotate: [0, 10, -10, 0],
@@ -230,9 +231,9 @@ const HomePage = () => {
               viewport={{ once: true, margin: "20px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-thin tracking-wider text-center mb-12 relative">
+              <h2 className="relative mb-12 text-4xl font-thin tracking-wider text-center">
                 EXPERIENCE & <span className="font-bold text-blue-900">CERTIFICATIONS</span>
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-px bg-gray-00"></span>
+                <span className="absolute bottom-0 w-24 h-px transform -translate-x-1/2 left-1/2 bg-gray-00"></span>
               </h2>
             </motion.div>
             
@@ -240,25 +241,25 @@ const HomePage = () => {
               {experience.map((exp, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-gray-100 p-8 rounded-xl group text-left shadow-md"
+                  className="p-8 text-left bg-gray-100 shadow-md rounded-xl group"
                   whileHover={{ y: -5 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <h3 className="text-2xl font-semibold flex items-center gap-2">
+                  <h3 className="flex items-center gap-2 text-2xl font-semibold">
                     {exp.role}
                     <motion.span 
-                      className="text-blue-900 text-lg opacity-0 group-hover:opacity-100"
+                      className="text-lg text-blue-900 opacity-0 group-hover:opacity-100"
                       initial={{ x: -10 }}
                       animate={{ x: 0 }}
                     >
                       {index === 0 ? "🚀" : "🐍"}
                     </motion.span>
                   </h3>
-                  <p className="text-lg mt-2">{exp.company}</p>
-                  <p className="text-gray-600 mt-1">{exp.period}</p>
+                  <p className="mt-2 text-lg">{exp.company}</p>
+                  <p className="mt-1 text-gray-600">{exp.period}</p>
                   
                   <motion.ul 
                     className="mt-4 space-y-1"
@@ -292,7 +293,7 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
       >
         
-     <h2 className="text-4xl text-center mb-12">
+     <h2 className="mb-12 text-4xl text-center">
   <span className="font-thin text-gray-600">EDU</span><span className="font-bold text-blue-900">CATION</span>
 </h2>
            </motion.div>
@@ -301,25 +302,25 @@ const HomePage = () => {
               {education.map((edu, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-gray-100 p-8 rounded-xl group text-left shadow-md"
+                  className="p-8 text-left bg-gray-100 shadow-md rounded-xl group"
                   whileHover={{ y: -5 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <h3 className="text-2xl font-semibold flex items-center gap-2">
+                  <h3 className="flex items-center gap-2 text-2xl font-semibold">
                     {edu.degree}
                     <motion.span 
-                      className="text-blue-900 text-lg opacity-0 group-hover:opacity-100"
+                      className="text-lg text-blue-900 opacity-0 group-hover:opacity-100"
                       initial={{ x: -10 }}
                       animate={{ x: 0 }}
                     >
                       🎓
                     </motion.span>
                   </h3>
-                  <p className="text-lg mt-2">{edu.institution}</p>
-                  <p className="text-gray-600 mt-1">{edu.period}</p>
+                  <p className="mt-2 text-lg">{edu.institution}</p>
+                  <p className="mt-1 text-gray-600">{edu.period}</p>
                   
                   <motion.ul 
                     className="mt-4 space-y-1"
@@ -345,24 +346,24 @@ const HomePage = () => {
 
         {/* Modern Skills Section */}
 <section className="w-full py-20 bg-white">
-  <div className="max-w-6xl mx-auto px-6">
+  <div className="max-w-6xl px-6 mx-auto">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-    ><h2 className="text-4xl font-thin tracking-wider text-center mb-12 relative">
+    ><h2 className="relative mb-12 text-4xl font-thin tracking-wider text-center">
   SKILLS & <span className="font-bold text-blue-900">EXPERTISE</span>
-  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-px "></span>
+  <span className="absolute bottom-0 w-24 h-px transform -translate-x-1/2 left-1/2 "></span>
 </h2>
      
     </motion.div>
 
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
       {skills.map((skill, index) => (
         <motion.div
           key={index}
-          className="group relative overflow-hidden bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-400 transition-all"
+          className="relative overflow-hidden transition-all bg-white border border-gray-100 shadow-sm group rounded-xl hover:border-blue-400"
           whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.15)" }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -370,14 +371,14 @@ const HomePage = () => {
           transition={{ duration: 0.5, delay: index * 0.08 }}
         >
           <div className="p-5">
-            <div className="flex justify-between items-center mb-3">
+            <div className="flex items-center justify-between mb-3">
               <span className="font-medium text-gray-700">{skill.name}</span>
               <span className="text-sm font-semibold text-blue-600">{skill.level}%</span>
             </div>
             
-            <div className="relative h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+            <div className="relative w-full h-2 overflow-hidden bg-gray-100 rounded-full">
               <motion.div
-                className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
+                className="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-blue-400 to-blue-600"
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.level}%` }}
                 viewport={{ once: true }}
@@ -392,7 +393,7 @@ const HomePage = () => {
           </div>
 
           {/* Hover effect indicator */}
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 transition-opacity bg-blue-500 opacity-0 group-hover:opacity-100"></div>
         </motion.div>
       ))}
     </div>
@@ -406,15 +407,15 @@ const HomePage = () => {
       transition={{ delay: 0.4 }}
     >
       <div className="flex items-center">
-        <div className="w-3 h-3 rounded-full bg-blue-400 mr-2"></div>
+        <div className="w-3 h-3 mr-2 bg-blue-400 rounded-full"></div>
         <span>Beginner (0-50%)</span>
       </div>
       <div className="flex items-center">
-        <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+        <div className="w-3 h-3 mr-2 bg-blue-500 rounded-full"></div>
         <span>Intermediate (50-80%)</span>
       </div>
       <div className="flex items-center">
-        <div className="w-3 h-3 rounded-full bg-blue-600 mr-2"></div>
+        <div className="w-3 h-3 mr-2 bg-blue-600 rounded-full"></div>
         <span>Advanced (80-100%)</span>
       </div>
     </motion.div>

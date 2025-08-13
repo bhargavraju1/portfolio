@@ -10,7 +10,6 @@ import Skills from "./pages/Skills";
 import Resume from './pages/Resume';
 import Blog from "./pages/Blog";
 
-
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-blue-950 text-white">
